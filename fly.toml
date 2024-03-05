@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for vehicle-rental-api on 2024-03-05T10:12:29+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'vehicle-rental-api'
+primary_region = 'sin'
+
+[build]
+
+[http_service]
+  internal_port = 443
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

@@ -20,8 +20,8 @@ func NewApp() (*mux.Router, error) {
 		return nil, err
 	}
 
-	var imageFolder = http.FileServer(http.Dir("./public/image"))
-	mainRoute.PathPrefix("/public/").Handler(http.StripPrefix("/public/image", imageFolder))
+	var imageFolder = http.FileServer(http.Dir("./public/image/"))
+	mainRoute.PathPrefix("/public/").Handler(http.StripPrefix("/public/image/", imageFolder))
 
 	user.NewRoute(mainRoute, db)
 	vehicle.NewRoute(mainRoute, db)
